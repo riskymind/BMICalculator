@@ -3,6 +3,7 @@ package com.asterisk.bmicalculator
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import com.asterisk.bmicalculator.ui.bmi.BmiScreen
 import com.asterisk.bmicalculator.ui.theme.BMICalculatorTheme
 
 class MainActivity : ComponentActivity() {
@@ -10,7 +11,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BMICalculatorTheme {
-
+                BmiScreen()
             }
         }
     }
