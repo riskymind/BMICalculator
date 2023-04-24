@@ -1,5 +1,6 @@
 package com.asterisk.bmicalculator.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,6 +22,7 @@ fun BottomSheetContent(
     sheetTitle: String,
     sheetItems: List<String>,
     onCancelClick: () -> Unit,
+    onItemClick: (String) -> Unit,
 ) {
 
     Text(
@@ -33,7 +35,9 @@ fun BottomSheetContent(
     )
 
     sheetItems.forEach { item ->
-        Box(modifier = Modifier.fillMaxWidth()) {
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onItemClick(item) }) {
             Text(
                 modifier = Modifier.padding(10.dp),
                 text = item
@@ -67,7 +71,8 @@ fun BottomSheetContentPreview() {
             BottomSheetContent(
                 sheetTitle = "Weight",
                 sheetItems = listOf("Kilogram", "Pounds"),
-                onCancelClick = {}
+                onCancelClick = {},
+                onItemClick = {}
             )
         }
     }
